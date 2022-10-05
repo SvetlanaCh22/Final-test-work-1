@@ -22,3 +22,18 @@ int FillArrayLength3(int iCount, string[] array, ref string[] array2)
     Array.Resize(ref array2, n);
     return n;
 }
+
+void ShowArray(int iSize, string[] array)
+{
+    string s = "";
+    Console.Write("Новый массив: [");
+    if (iSize > 0)
+    {
+        for (int i = 0; i < iSize; i++)
+        {
+            s += $"{array[i]}, ";
+        }
+        s = s.Substring(0, s.Length-2);
+    }
+    Console.Write(s+"]");
+}
