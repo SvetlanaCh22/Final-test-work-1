@@ -37,3 +37,28 @@ void ShowArray(int iSize, string[] array)
     }
     Console.Write(s+"]");
 }
+
+Console.WriteLine("Сколько строк вы хотите задать?");
+bool temp = int.TryParse(Console.ReadLine(), out int iCount);
+if (!temp)
+{
+    Console.WriteLine("Ошибка ввода");
+    return;
+}
+
+// Заполняем массив
+string[] arrayFirst = new string[iCount];
+FillArray(iCount, arrayFirst);
+
+// Создаем новый массив на максимальную длину
+string[] arraySecond = new string[iCount];
+// Заполняем строками до 3х символов и получаем его длину
+int iCount2 = FillArrayLength3(iCount, arrayFirst, ref arraySecond);
+
+// Выводим новый массив
+// Можно iCount2 и не передавать, а получать в самой функции,
+// но смысл это делать, если уже имеется данное значение
+ShowArray(iCount2, arraySecond);
+
+// Чтобы увидеть вывод и не закрывалась консоль
+Console.ReadLine();
